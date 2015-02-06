@@ -6,4 +6,5 @@ function init() {
   createMatch();
   deleteMatch();
   startMatch();
+  // showCurrentMatch();
 }

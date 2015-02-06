@@ -9,14 +9,26 @@ class MatchesController < ApplicationController
     @match = Match.new
   end
 
-  def start
-    @match = Match.find_by_id(params[:id]) || (render_404 and return)
-
-    return redirect_with_error(:waiting_list,
-                               'A match is already in progress.') if any_match_already_in_progress?
+  def update
+    @match = Match.find_by_id(params[:id])
 
     @match.update_attributes({:in_progress => true})
-    redirect_with_success :in_progress
+    render json: @match
+  
+  end
+
+
+  def update
+  @group = Group.find(params[:id])
+  if @group.update(group_params)
+    render json:@group
+  end
+end
+
+
+  def completed
+    @matches = Match.where(:completed => true)
+    render_list_of @matches
   end
 
   def create
@@ -44,11 +56,20 @@ class MatchesController < ApplicationController
     render json: @match
   end
 
+  def in_progress
+    @in_progress = current_match
+
+    return redirect_with_error(:waiting_list, 'There is no match in progress.') unless @in_progress
+
+    render_single @in_progress
+  end
+
   private
 
   def match_params
     params.require(:match).permit(
       :number_of_games,
+      :in_progress,
       :names => [],
       :game1 => [:team_1_score, :team_2_score],
       :game2 => [:team_1_score, :team_2_score],
@@ -90,6 +111,10 @@ class MatchesController < ApplicationController
 
   def pending_matches
     Match.where(:completed => false, :in_progress => false)
+  end
+
+  def any_match_already_in_progress?
+    Match.all.any? { |match| match.in_progress }
   end
 
   def render_list_of(matches)

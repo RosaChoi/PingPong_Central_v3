@@ -52,7 +52,7 @@
 
 #currentMatch:hover,
 #allMatch:hover,
-#finishedMatch:hover {
+#leaderboard:hover {
   background: #F3F3F4;
   cursor: pointer; }
 
