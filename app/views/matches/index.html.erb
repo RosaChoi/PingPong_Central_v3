@@ -1,5 +1,52 @@
-<h1>Welcome to Ping Pong Central</h1>
+<div id="matchDisplay" class="row col-sm-6 col-sm-offset-3">
+  <div id="enterPlayers">
+    <%= render "new_players_form" %>
+  </div>
+  <div id="startMatch" class="well">
+    <ul id="match-vs" class="list-unstyled">
+    <!-- <% @matches.each do |match| %>
+      <li>
+        <div class="match">
+          <div class="row">
+            <span class="player_names">
+              <%= render "match_names", :match => match %>
+            </span>
+          </div>
+          <div class="row col-sm-offset-1">
+            <button type="button" id="beginMatch" class="btn btn-success">Start Match</button>
+            <button type="button" id="deleteMatch" class="btn btn-default">Delete Match</button>
+          </div>
+        </div>
+      </li>
+      <% end %> -->
+    </ul>
+  </div>
+  <div id="scoreboard">
+    <div class="row">
+      <div class="list-group col-sm-4">
+        <a class="list-group-item text-center active">Current Match</a>
+        <a class="list-group-item text-center">Game 1</a>
+        <a class="list-group-item text-center">Game 2</a>
+        <a class="list-group-item text-center">game 3</a>
+      </div>
+      <div class="list-group col-sm-4">
+        <a href="#" class="current-player list-group-item text-center active">Rosa</a>
+        <input class="list-group-item text-center" placeholder="Enter score">
+        <input class="list-group-item text-center" placeholder="Enter score">
+        <input class="list-group-item text-center" placeholder="Enter score">
+      </div>
+      <div class="list-group col-sm-4">
+        <a href="#" class="current-player list-group-item text-center active">Momo</a>
+        <input class="list-group-item text-center" placeholder="Enter score">
+        <input class="list-group-item text-center" placeholder="Enter score">
+        <input class="list-group-item text-center" placeholder="Enter score">
+      </div>
+    </div>
+    <div class="row text-center">
+      <button type="button" id="updateScore" class="btn btn-info">Update Score</button>
+      <button type="button" id="done" class="btn btn-success">Match Completed</button>
+    </div>
+  </div>
+  <button type="button" id="newMatch" class="btn btn-default btn-lg btn-block">CREATE MATCH</button>
 
-<% @players.each do |player| %>
-<%= player.name %>
-<% end %>
+</div>

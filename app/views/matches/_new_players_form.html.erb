@@ -1,0 +1,19 @@
+<form>
+  <div class="form-group">
+    <%= text_field_tag "name", "", placeholder:"Enter Player 1 Name", class:"form-control playerName" %>
+  </div>
+  <div class="form-group">
+    <%= text_field_tag "name", "", placeholder:"Enter Player 2 Name", class:"form-control playerName" %>
+  </div>
+  <div class="form-group">
+    <span>For Doubles</span>
+    <%= text_field_tag "name", "", placeholder:"Enter Player 3 Name", class:"form-control playerName" %>
+  </div>
+  <div class="form-group">
+    <%= text_field_tag "name", "", placeholder:"Enter Player 4 Name", class:"form-control playerName" %>
+  </div>
+
+  <div class="form-group">
+    <button type="button" id="create_match" class="btn btn-default btn-lg btn-block">Enter Players</button>
+  </div>
+</form>

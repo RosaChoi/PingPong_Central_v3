@@ -1,20 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pingpong</title>
+  <title>Ping Pong Central</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container">
-    <% if notice %>
-        <div id="notice" class="alert alert-success text-center">
-          <%= notice %>
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <%= image_tag 'pingpong.svg', alt: 'Ping Pong Cengral', id: "logo" %>
+      <%= link_to "Ping Pong Central", root_path, :class =>'title' %>
+    </div>
+  </nav>
+
+  <div id="main" class="container">
+
+    <% if flash[:notice] %>
+      <div id="flash_message" class="alert alert-success text-center"><%= flash[:notice] %></div>
+    <% end %>
+
+    <div id="matchMenu" class="row text-center col-sm-offset-2">
+      <div id="currentMatch" class="col-sm-3">
+        <span href="#" data-toggle="modal" data-target="#currentModal">Current Match</span>
+      </div>
+      <div id="allMatch" class="col-sm-3">
+        <span>All Matches</span>
+      </div>
+      <div id="finishedMatch" class="col-sm-3">
+        <span>Completed Matches</span>
+      </div>
+    </div>
+
+    <!-- Modal:Current Match -->
+    <div class="modal fade" id="currentModal" tabindex="-1" role="dialog" aria-labelledby="currentModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="cmModalLabel">Current Match</h4>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Back to your dashboard!</button>
+          </div>
         </div>
-      <% end %>
-      
+      </div>
+    </div>
     <%= yield %>
   </div>
+
+
 </body>
 </html>

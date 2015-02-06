@@ -1,3 +1,97 @@
 // Place all the styles related to the Matches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//Setting Color Palette//
+
+$navy: #2A3D50;
+$emerald: #7DCC93;
+$pink: #E06D93;
+$smoke: #F3F3F4;
+
+@mixin boxShadow {
+  -webkit-box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+  -moz-box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+  box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+}
+
+#logo {
+  width: 8%;
+}
+
+.title {
+  color: $emerald;
+  font-size: 1.5em;
+  padding-top: 5px;
+
+  &:hover {
+    color: $smoke;
+    text-decoration: none;
+  }
+}
+
+#main {
+  margin-top: 6em;
+}
+
+#newMatch,
+#create_match {
+  border-color: #000;
+  background: #FFF;
+  &:hover{
+    color: $emerald;
+    background: #000;
+  }
+}
+#matchDisplay {
+  margin-top: 2em;
+}
+
+.player_names {
+  font-size: 1.4em;
+}
+
+#startMatch {
+  min-height: 150px;
+}
+
+#deleteMatch,
+#beginMatch {
+  position: relative;
+  margin-top: 2em;
+  width: 200px;
+}
+
+#matchMenu div {
+  height: 50px;
+  border-top: 3px solid $emerald;
+  padding: 15px;
+  margin: 0 10px;
+  @include boxShadow;
+}
+
+#enterPlayers,
+#startMatch,
+#scoreboard {
+  display: none;
+}
+
+#currentMatch:hover,
+#allMatch:hover,
+#finishedMatch:hover {
+  background: $smoke;
+  cursor: pointer;
+}
+
+.list-group-item.text-center.active {
+  background: #000;
+  border-color: #000;
+  &:hover{
+    background: $emerald;
+    border-color: darken($emerald, 15%);
+  }
+}
+
+.current-player.list-group-item.text-center.active {
+  width: 178px;
+}

@@ -1,0 +1,69 @@
+#logo {
+  width: 8%; }
+
+.title {
+  color: #7DCC93;
+  font-size: 1.5em;
+  padding-top: 5px; }
+  .title:hover {
+    color: #F3F3F4;
+    text-decoration: none; }
+
+#main {
+  margin-top: 6em; }
+
+#newMatch,
+#create_match {
+  border-color: #000;
+  background: #FFF; }
+  #newMatch:hover,
+  #create_match:hover {
+    color: #7DCC93;
+    background: #000; }
+
+#matchDisplay {
+  margin-top: 2em; }
+
+.player_names {
+  font-size: 1.4em; }
+
+#startMatch {
+  min-height: 150px; }
+
+#deleteMatch,
+#beginMatch {
+  position: relative;
+  margin-top: 2em;
+  width: 200px; }
+
+#matchMenu div {
+  height: 50px;
+  border-top: 3px solid #7DCC93;
+  padding: 15px;
+  margin: 0 10px;
+  -webkit-box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+  -moz-box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+  box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4); }
+
+#enterPlayers,
+#startMatch,
+#scoreboard {
+  display: none; }
+
+#currentMatch:hover,
+#allMatch:hover,
+#finishedMatch:hover {
+  background: #F3F3F4;
+  cursor: pointer; }
+
+.list-group-item.text-center.active {
+  background: #000;
+  border-color: #000; }
+  .list-group-item.text-center.active:hover {
+    background: #7DCC93;
+    border-color: #47b566; }
+
+.current-player.list-group-item.text-center.active {
+  width: 178px; }
+
+/*# sourceMappingURL=matches.css.map */
