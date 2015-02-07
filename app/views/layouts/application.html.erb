@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Ping Pong Central</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application'%>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -41,7 +41,12 @@
             <h4 class="modal-title" id="cmModalLabel">Current Match</h4>
           </div>
           <div class="modal-body">
-
+            <% @matches = Match.where(:in_progress => true)  %>
+            <% @matches.each do |match| %>
+              <% match.teams.each do |team| %>
+            <span><%= team.players.first.name%></span>
+              <% end %>
+            <% end %>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-success" data-dismiss="modal">Back to your dashboard!</button>

@@ -3,8 +3,7 @@ $(document).ready(function () {
 });
 
 function init() {
-  createMatch();
-  deleteMatch();
-  startMatch();
-  // showCurrentMatch();
+  $('#newMatch').on('click', createMatch);
+  $('#match-vs').on('click', '#deleteMatch', deleteMatch);
+  $('#match-vs').on('click', '#beginMatch', startMatch);
 }

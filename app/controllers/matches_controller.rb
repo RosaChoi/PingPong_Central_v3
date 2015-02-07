@@ -14,21 +14,10 @@ class MatchesController < ApplicationController
 
     @match.update_attributes({:in_progress => true})
     render json: @match
-  
   end
-
-
-  def update
-  @group = Group.find(params[:id])
-  if @group.update(group_params)
-    render json:@group
-  end
-end
-
 
   def completed
     @matches = Match.where(:completed => true)
-    render_list_of @matches
   end
 
   def create
@@ -58,10 +47,6 @@ end
 
   def in_progress
     @in_progress = current_match
-
-    return redirect_with_error(:waiting_list, 'There is no match in progress.') unless @in_progress
-
-    render_single @in_progress
   end
 
   private
@@ -115,29 +100,6 @@ end
 
   def any_match_already_in_progress?
     Match.all.any? { |match| match.in_progress }
-  end
-
-  def render_list_of(matches)
-    respond_to do |format|
-      format.html
-      format.json { return_matches_as_json(@matches) }
-    end
-  end
-
-  def return_match_as_json(match)
-    render :json => {
-      :match => match,
-      :players => match.players
-    }
-  end
-
-  def redirect_with_error(action, error)
-    flash[:notice] = error
-
-    respond_to do |format|
-      format.html { redirect_to(:action => action) }
-      format.json { render :json => { 'error' => flash[:notice] }}
-    end
   end
 
 end

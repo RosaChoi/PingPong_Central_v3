@@ -1,10 +1,9 @@
 function createMatch() {
-  $('#newMatch').on('click', function(e) {
-    $(this).hide();
+    $('#newMatch').hide();
     $('#enterPlayers').slideDown('2000');
-  });
 
   $('#create_match').on('click',function(e){
+    console.log('createMatch')
     var players = [];
     var playerNames = $('#enterPlayers input');
 
@@ -21,6 +20,7 @@ function createMatch() {
         }
       }
     }).done(function (data) {
+      console.log("CREATE MATCH DONE")
       console.log(data)
       $('#match-vs').append($('\
       <li data-id="'+data.match.id+'">\
