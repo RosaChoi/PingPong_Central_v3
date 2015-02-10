@@ -15,3 +15,4 @@
 //= require_tree .
 
 //= require bootstrap-sprockets
+//= require handlebars-v2.0.0.js

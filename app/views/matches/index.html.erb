@@ -4,21 +4,7 @@
   </div>
   <div id="startMatch" class="well">
     <ul id="match-vs" class="list-unstyled">
-    <!-- <% @matches.each do |match| %>
-      <li>
-        <div class="match">
-          <div class="row">
-            <span class="player_names">
-              <%= render "match_names", :match => match %>
-            </span>
-          </div>
-          <div class="row col-sm-offset-1">
-            <button type="button" id="beginMatch" class="btn btn-success">Start Match</button>
-            <button type="button" id="deleteMatch" class="btn btn-default">Delete Match</button>
-          </div>
-        </div>
-      </li>
-      <% end %> -->
+
     </ul>
   </div>
   <div id="scoreboard">
@@ -50,3 +36,25 @@
   <button type="button" id="newMatch" class="btn btn-default btn-lg btn-block">CREATE MATCH</button>
 
 </div>
+
+<script type="text/x-handlebars-template" id="matchList" >
+  <li data-id={{matchId}}>
+    <div class="match">
+      <div class="row">
+        <span class="player_names">
+          <div class="team_1 col-sm-3 col-sm-offset-2">
+            <p>{{team_one_name1}}</p>
+          </div>
+          <div class="col-sm-3">vs.</div>
+          <div class="team_2 col-sm-3">
+            <p>{{team_one_name2}}</p>
+          </div>
+        </span>
+      </div>
+      <div class="row col-sm-offset-1">
+        <button type="button" id="beginMatch" class="btn btn-success">Start Match</button>
+        <button type="button" id="deleteMatch" class="btn btn-default">Delete Match</button>
+      </div>
+    </div>
+  </li>
+</script>

@@ -22,27 +22,17 @@ function createMatch() {
     }).done(function (data) {
       console.log("CREATE MATCH DONE")
       console.log(data)
-      $('#match-vs').append($('\
-      <li data-id="'+data.match.id+'">\
-        <div class="match">\
-          <div class="row">\
-            <span class="player_names">\
-              <div class="team_1 col-sm-3 col-sm-offset-2">\
-                <p>'+data.team1[0].name+'</p>\
-              </div>\
-              <div class="col-sm-3">vs.</div>\
-              <div class="team_2 col-sm-3">\
-                <p>'+data.team2[0].name+'</p>\
-              </div>\
-            </span>\
-          </div>\
-          <div class="row col-sm-offset-1">\
-            <button type="button" id="beginMatch" class="btn btn-success">Start Match</button>\
-            <button type="button" id="deleteMatch" class="btn btn-default">Delete Match</button>\
-          </div>\
-        </div>\
-      </li>\
-      '));
+      $('#match-vs').empty();
+      var source = $("#matchList").html();
+      var template = Handlebars.compile(source);
+      var context = {
+        team_one_name1: data.team1[0].name,
+        team_one_name2: data.team2[0].name,
+        matchId: data.match.id,
+      }
+      var html = template(context);
+      $('#match-vs').append(html);
+
       // append new match to list of matches
       $('#startMatch').fadeIn(function(){
         $('#match-vs li').show();
