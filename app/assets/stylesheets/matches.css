@@ -1,5 +1,6 @@
 #logo {
-  width: 8%; }
+  width: 8%;
+}
 
 .title {
   color: #7DCC93;
@@ -58,10 +59,13 @@
 
 .list-group-item.text-center.active {
   background: #000;
-  border-color: #000; }
-  .list-group-item.text-center.active:hover {
+  border-color: #000;
+}
+.list-group-item.text-center.active:hover {
     background: #7DCC93;
-    border-color: #47b566; }
+    border-color: #47b566;
+}
 
 .current-player.list-group-item.text-center.active {
-  width: 178px; }
+  width: 178px;
+}
