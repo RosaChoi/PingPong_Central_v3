@@ -7,11 +7,18 @@ class GamesController < ApplicationController
     @game = Game.new
   end
 
+  def show
+    @game = Game.find params[:id]
+
+    match = Match.find(@game.match_id)
+    @player1_name = match.players[0].name
+    @player2_name = match.players[1].name
+  end
+
   def update
     @game = Game.find params[:id]
 
     @game.update_attributes(game_params)
-    
   end
 
   private
