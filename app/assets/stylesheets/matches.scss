@@ -81,7 +81,7 @@ $smoke: #F3F3F4;
 .list-group-item.text-center.active {
   background: #000;
   border-color: #000;
-  &:hover{
+  &:hover {
     background: $emerald;
     border-color: darken($emerald, 15%);
   }
